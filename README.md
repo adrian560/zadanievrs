@@ -50,7 +50,7 @@
 
 # Zadanie 5 (10b)
 
-Vytvoriť aplikáciu, ktorá bude posielať dáta získané zo senzorov (LPS25HB, HTS221) cez USART do PC. Zobrazovanými údajmi budú teplota, relatívna vlhkosť vzduchu, tlak vzduchu a relatívna výška od zeme.
+Vytvoriť aplikáciu, ktorá bude posielať dáta získané zo senzorov (LPS25HB, HTS221) cez USART do PC. Odosielanými údajmi budú teplota, relatívna vlhkosť vzduchu, tlak vzduchu a relatívna výška (výška nad povrchom zeme).
 
 ### Úlohy
 
@@ -62,7 +62,7 @@ Vytvoriť aplikáciu, ktorá bude posielať dáta získané zo senzorov (LPS25HB
 
 4. Knižnica musí obsahovať funkciu na čítanie/zapisovanie dáť zo/do senzora. Zapisovanie do senzora bude slúžiť napr. pri konfigurácii senzora a čítanie bude slúžiť na získavanie aktuálneho stavu senzora (ak je to potrebné), hodnôt meraných veličín ... . Ak zo senzora budete čítať viac ako jednu veličinu (napr. teplota a vlhkosť), tak pre každú meranú veličinu vytvorte samostatnú funkciu na jej čítanie. V demo príklade je funkcia "lsm6ds0_get_acc" pre získanie zrýchlení. AK by sa vyčítavali aj uhlové rýchlosti z gyra, knižnica by obsahovala funkciu "lsm6ds0_get_gyro".
 
-5. Údaje, ktoré sa majú zobrazovať ale nie su priamo získateľné zo senzora je potrebné na základe dostupných meraných hodnôt vypočítať (napr. relatívna výška od zeme, ...). Pre takýto "post processing", kedy sa z meraných údajov snažite niečo vypočítať vytvorte samostatnú funkciu.
+5. Údaje, ktoré sa majú zobrazovať ale nie su priamo získateľné zo senzora je potrebné na základe dostupných meraných hodnôt vypočítať (napr. relatívna výška, ...). Pre takýto "post processing", kedy sa z meraných údajov snažite niečo vypočítať vytvorte samostatnú funkciu.
 
 6. Údaje sa budú posielať cez USART vo formáte CSV a zobrazovať na PC pomocou "serial osciloscope".
 
@@ -70,7 +70,7 @@ Vytvoriť aplikáciu, ktorá bude posielať dáta získané zo senzorov (LPS25HB
    - teplota [°C]: "xx.x"
    - rel. vlhkosť [%]: "xx"
    - tlak vzduchu [hPa]: "xxxx.xx"
-   - relatívna výška od zeme [m]: "xxx.xx"
+   - relatívna výška [m]: "xxx.xx"
    
 8. Odovzdáva sa projekt do miesta odovzdania v AIS + počas odovzdávania sa skontroluje git.
    
