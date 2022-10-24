@@ -37,6 +37,17 @@
 
 - ukážkový program komunikuje s LSM6DS0 prostredníctvom I2C a číta hodnotu zrýchlení v osiach x, y, z
 
+# Serial oscilloscope
+<p align="center">
+    <img src="https://github.com/VRS-Predmet/vrs_cvicenie_9/blob/master/images/serial_osc.png" width="950" title="Serial oscilloscope">
+</p>
+
+- aplíkácia pre vykreslovanie dát, ktoré sú priaté prostredníctvom sériovej komunikácie vo formáte CSV (comma-separated values) - napríklad "123,158,39.789,5639"
+- možnosť používať aj ako obyčajnú terminálovú aplikáciu (Putty)
+- nutnosť nastaviť COM port a prenosovú rýchlosť (baud rate)
+- po kliknutí na "Oscilloscope" za otvorí nové okno s grafickým zobrazením priebehov (maximálne 9 kanálov, 3 kanály pre jedno okno), s ktorým je možné manipulovať (posúvať priebeh, meniť časovú základňu a rozsah zobrazovaných hodnôt)
+- k dispozícii na stiahnutie tu: https://x-io.co.uk/serial-oscilloscope/  
+
 # Zadanie 5 (10b)
 
 Vytvoriť aplikáciu, ktorá bude posielať dáta získané zo senzorov (LPS25HB, HTS221) cez USART do PC. Zobrazovanými údajmi budú teplota, relatívna vlhkosť vzduchu, tlak vzduchu a relatívna výška od zeme.
@@ -53,7 +64,7 @@ Vytvoriť aplikáciu, ktorá bude posielať dáta získané zo senzorov (LPS25HB
 
 5. Údaje, ktoré sa majú zobrazovať ale nie su priamo získateľné zo senzora je potrebné na základe dostupných meraných hodnôt vypočítať (napr. relatívna výška od zeme, ...). Pre takýto "post processing", kedy sa z meraných údajov snažite niečo vypočítať vytvorte samostatnú funkciu.
 
-6. Údaje sa budú zobrazovať na PC pomocou "serial osciloscope".
+6. Údaje sa budú posielať cez USART vo formáte CSV a zobrazovať na PC pomocou "serial osciloscope".
 
 7. Formátovanie odosielaných hodnôt. Hranatá zatvorka predstavuje v akých jednotkách je zobrazovaná hodnota. Niektoré hodnoty sú zobrazované s presnosťou na 1 alebo 2 desatinné miesta. "xx.x" predstavuje digity vyhradené pre číslice - jedno desatinné miesto, jednotky a desiatky:
    - teplota [°C]: "xx.x"
