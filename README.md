@@ -75,3 +75,4 @@ Vytvoriť aplikáciu, ktorá bude posielať dáta získané zo senzorov (LPS25HB
 8. Odovzdáva sa projekt do miesta odovzdania v AIS + počas odovzdávania sa skontroluje git.
    
 
+# zadanievrs
