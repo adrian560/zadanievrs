@@ -28,11 +28,15 @@
 #include "stdio.h"
 #include "string.h"
 #include "dma.h"
+#include "lps25hb.h"
+#include "hts221.h"
 
 #define CHAR_BUFF_SIZE	30
 
 uint8_t temp = 0;
 float mag[3], acc[3];
+uint8_t humidity;
+float press, alt, temp1;
 char formated_text[30], value_x[10], value_y[10], value_z[10];
 
 void SystemClock_Config(void);
@@ -53,13 +57,21 @@ int main(void)
   MX_USART2_UART_Init();
 
   lsm6ds0_init();
+  lps25hb_init();
+  hts221_init();
 
   while (1)
   {
 	  //os			   x      y        z
+	  temp1 = hts221_get_temperature();
+	  humidity = hts221_get_humidity();
+	  press = lps25hb_get_pressure();
+	  alt = lps25hb_calculate_altitude(press);
+
 	  lsm6ds0_get_acc(acc, (acc+1), (acc+2));
 	  memset(formated_text, '\0', sizeof(formated_text));
-	  sprintf(formated_text, "%0.4f,%0.4f,%0.4f\r", acc[0], acc[1], acc[2]);
+	  sprintf(formated_text, "%0.1f, %d, %0.2f, %0.2f \n \r",temp1,humidity, press, alt);
+
 	  USART2_PutBuffer((uint8_t*)formated_text, strlen(formated_text));
 	  LL_mDelay(10);
   }
