@@ -1,10 +1,3 @@
-/*
- * lps25hb.h
- *
- *  Created on: Dec 16, 2021
- *      Author: Filip Gerhat
- */
-
 #ifndef PRESSURE_SENSOR_LPS25HB_H_
 #define PRESSURE_SENSOR_LPS25HB_H_
 

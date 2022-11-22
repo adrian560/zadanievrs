@@ -1,10 +1,3 @@
-/*
- * hts221.h
- *
- *  Created on: Dec 18, 2021
- *      Author: Filip Gerhat
- */
-
 #ifndef INC_TEMP_HUMIDITY_SENSOR_HTS221_H_
 #define INC_TEMP_HUMIDITY_SENSOR_HTS221_H_
 

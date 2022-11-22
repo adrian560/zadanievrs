@@ -1,10 +1,3 @@
-/*
- * hts221.c
- *
- *  Created on: Dec 18, 2021
- *      Author: Filip Gerhat
- */
-
 #include "hts221.h"
 
 static uint8_t address = HTS221_I2C_ADDRESS;

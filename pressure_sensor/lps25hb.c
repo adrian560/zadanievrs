@@ -1,10 +1,3 @@
-/*
- * lps25hb.c
- *
- *  Created on: Dec 16, 2021
- *      Author: Filip Gerhat
- */
-
 #include "lps25hb.h"
 
 #include "math.h"

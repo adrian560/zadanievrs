@@ -36,7 +36,7 @@
 uint8_t temp = 0;
 float mag[3], acc[3];
 uint8_t humidity;
-float press, alt, temp1;
+float press, alt, temp1, startingAlt;
 char formated_text[30], value_x[10], value_y[10], value_z[10];
 
 void SystemClock_Config(void);
@@ -60,6 +60,9 @@ int main(void)
   lps25hb_init();
   hts221_init();
 
+  press = lps25hb_get_pressure();
+  startingAlt = lps25hb_calculate_altitude(press);
+
   while (1)
   {
 	  //os			   x      y        z
@@ -70,7 +73,7 @@ int main(void)
 
 	  lsm6ds0_get_acc(acc, (acc+1), (acc+2));
 	  memset(formated_text, '\0', sizeof(formated_text));
-	  sprintf(formated_text, "%0.1f, %d, %0.2f, %0.2f \n \r",temp1,humidity, press, alt);
+	  sprintf(formated_text, "%0.1f, %d, %0.2f, %0.2f \n \r",temp1,humidity, press, (alt - startingAlt));
 
 	  USART2_PutBuffer((uint8_t*)formated_text, strlen(formated_text));
 	  LL_mDelay(10);
